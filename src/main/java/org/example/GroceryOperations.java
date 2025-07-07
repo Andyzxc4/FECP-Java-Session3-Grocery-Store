@@ -29,7 +29,7 @@ public class GroceryOperations {
 
     //  update inventory using .put() to edit item with new quantity stock
     public void updateProduct (String item, int quant) {
-        inventory.put(item, quant);
+        inventory.replace(item, quant);
     }
 
     //  delete item in inventory using .remove()

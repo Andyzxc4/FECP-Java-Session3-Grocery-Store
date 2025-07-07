@@ -91,6 +91,8 @@ public class GroceryStore {
                     }
                     break;
                 case 6:
+                    System.out.println("Exiting System...");
+                    System.out.println("----- Bye Bye! -----");
                     System.exit(0);
                     break;
             }
