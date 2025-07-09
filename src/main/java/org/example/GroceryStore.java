@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -25,15 +26,27 @@ public class GroceryStore {
                     viewInventory(groceryOperations.getInventory());
                     break;
                 case 2:
-                    //  user inputs for product & quantity
+                    //  user input for product
                     System.out.print("\nEnter product name: ");
                     String productInput = scannerObj.next();
 
-                    System.out.print("Enter product quantity: ");
-                    int quantityInput = scannerObj.nextInt();
+                    //  use while loop to handle closing of the program when user inputted non integer for quantity
+                    while (true) {
+                        //  utilize try catch to validate 'int' input of quantity
+                        try {
+                            //  user input for quantity
+                            System.out.print("Enter product quantity: ");
+                            int quantityInput = scannerObj.nextInt();
 
-                    //  add product & quantity to hashmap
-                    groceryOperations.addProduct(productInput, quantityInput);
+                            //  add product & quantity to hashmap
+                            groceryOperations.addProduct(productInput, quantityInput);
+
+                            break; // break out of the while loop if the inputted value for quantity is an Integer
+                        } catch (InputMismatchException e) {
+                            System.out.println("Quantity should be an Integer. Try Again...");
+                            scannerObj.nextLine(); // consume the invalid input to avoid infinite loop
+                        }
+                    }
 
                     System.out.printf("** Product [%s] has been added to inventory. **\n\n", productInput);
                     break;
@@ -49,18 +62,32 @@ public class GroceryStore {
 
                     while (true) {
                         //  product name input to update
-                        System.out.print("Enter product name to check: ");
+                        System.out.print("Enter product name to update: ");
                         String productNameInput = scannerObj.next();
 
+                        /*
+                            call out validateProduct() method that returns:
+                                true -> if the inputted product name exists in inventory (hashmap key)
+                                false -> if the inputted product name doesn't exist in inventory (hashmap key)
+                         */
                         boolean isValidProduct = groceryOperations.validateProduct(productNameInput);
 
                         if (isValidProduct) {
-                            //  product stock input to update
-                            System.out.print("Enter new stock quantity: ");
-                            int productQuantityInput = scannerObj.nextInt();
+                            while (true) {
+                                //  utilize try catch to validate 'int' input of new stock quantity
+                                try {
+                                    //  product stock input to update
+                                    System.out.print("Enter new stock quantity: ");
+                                    int productQuantityInput = scannerObj.nextInt();
 
-                            groceryOperations.updateProduct(productNameInput, productQuantityInput);
-                            System.out.printf("** Product [%s] stock has been updated to -> [%s]. **\n\n", productNameInput, productQuantityInput);
+                                    groceryOperations.updateProduct(productNameInput, productQuantityInput);
+                                    System.out.printf("** Product [%s] stock has been updated to -> [%s]. **\n\n", productNameInput, productQuantityInput);
+                                    break;
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Quantity should be an Integer. Try Again...");
+                                    scannerObj.nextLine(); // consume the invalid input to avoid infinite loop
+                                }
+                            }
                             //  break out while loop when product has been updated
                             break;
                         }
@@ -77,6 +104,11 @@ public class GroceryStore {
                     System.out.print("Enter product name to remove: ");
                     String productNameInput = scannerObj.next();
 
+                    /*
+                        call out validateProduct() method that returns:
+                            true -> if the inputted product name exists in inventory (hashmap key)
+                            false -> if the inputted product name doesn't exist in inventory (hashmap key)
+                     */
                     boolean isValidProduct = groceryOperations.validateProduct(productNameInput);
 
                     while (true) {
@@ -127,4 +159,5 @@ public class GroceryStore {
             });
         }
     }
+
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class GroceryOperations {
     //  private hashmap 'inventory' to store product and quantity <product (String), Integer (Quantity)>
-    private HashMap<String, Integer> inventory = new HashMap<>();
+    private final HashMap<String, Integer> inventory = new HashMap<>();
 
     //  add a product in the inventory hashmap with method parameters of product name and its quantity
     public void addProduct (String product, int quant) {
