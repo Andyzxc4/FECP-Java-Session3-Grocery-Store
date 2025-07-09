@@ -7,33 +7,60 @@ public class GroceryOperations {
     private final HashMap<String, Integer> inventory = new HashMap<>();
 
     //  add a product in the inventory hashmap with method parameters of product name and its quantity
-    public void addProduct (String product, int quant) {
-        inventory.put(product, quant);
+    public String addProduct (String product, int quant) {
+        inventory.put(product, quant); //   add new product using .put()
+        return String.format("** Product [%s] has been added to inventory **\n", product);
     }
 
     //  utilized containsKey() with 'product' as parameters to check if that product (key) is in the HashMap
     public String checkProduct(String product) {
-        if (inventory.containsKey(product)) {
+        /*
+            call out validateProduct() method that returns:
+                true -> if the inputted product name exists in inventory (hashmap key)
+                false -> if the inputted product name doesn't exist in inventory (hashmap key)
+         */
+        if (validateProduct(product)) {
             return String.format("%s is in stock: %s", product, inventory.get(product));
         } else {
             return String.format("Product [%s] isn't available. Product might not be included or wrong spelling.", product);
         }
     }
 
-    //  update inventory using .put() to edit product with new quantity stock
-    public void updateProduct (String product, int quant) {
-        inventory.replace(product, quant);
+    //  update inventory using .replace() to edit product with new quantity stock
+    public String updateProduct (String product, int quant) {
+        /*
+            call out validateProduct() method that returns:
+                true -> if the inputted product name exists in inventory (hashmap key)
+                false -> if the inputted product name doesn't exist in inventory (hashmap key)
+         */
+        if(validateProduct(product)) {
+            inventory.replace(product, quant); //   update product using .replace()
+            return String.format("** Product [%s] stock has been updated to -> [%s] **\n", product, quant);
+        } else {
+            return String.format("Product [%s] isn't available. Product might not included or wrong spelling.\n", product);
+        }
+
     }
 
     //  delete product in inventory using .remove()
-    public void removeProduct (String product) {
-        inventory.remove(product);
+    public String removeProduct (String product) {
+           /*
+            call out validateProduct() method that returns:
+                true -> if the inputted product name exists in inventory (hashmap key)
+                false -> if the inputted product name doesn't exist in inventory (hashmap key)
+         */
+        if(validateProduct(product)) {
+            inventory.remove(product); //   remove product using .remove(key)
+            return String.format("\n** Product [%s] has been removed from inventory **", product);
+        } else {
+            return String.format("\nProduct [%s] isn't available. Product might not included or wrong spelling.", product);
+        }
+
     }
 
     //  utilized containsKey() with 'product' as parameters to check if that product (key) is in the HashMap
-    // this time we want to return boolean to validate product in st
     public boolean validateProduct (String product) {
-        return inventory.containsKey(product);
+        return inventory.containsKey(product); //   used .containsKey(key) to check if HashMap contains that key
     }
 
     //  getters
