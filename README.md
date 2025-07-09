@@ -4,10 +4,10 @@ Name: Andre Dominic Ha Lacra
 Unit Test & Coverage Screenshots:
 
 <strong>Unit Test Screenshot:</strong>
-![Alt text](testcase-screenshots/Session3-Lab1P1-TestResults.png)
+![Alt text](testcase-screenshots/Session3-Lab1P2-TestResults.png)
 
 <strong>Test Coverage Screenshot:</strong>
-![Alt text](testcase-screenshots/Session3-Lab1P1-TestCoverage.png)
+![Alt text](testcase-screenshots/Session3-Lab1P2-TestCoverage.png)
 
 Output Screenshot:
 
