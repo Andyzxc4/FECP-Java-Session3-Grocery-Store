@@ -97,11 +97,6 @@ class GroceryOperationsTest {
      */
     @Test
     void testValidateValidProduct() {
-        /*
-            the validateProduct() method in GroceryOperations is utilized for validating product by returning:
-                true -> if the inputted product name exists in inventory (hashmap key)
-                false -> if the inputted product name doesn't exist in inventory (hashmap key)
-         */
         assertTrue(groceryOperations.validateProduct("Cheese"));
     }
 
