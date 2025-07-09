@@ -24,3 +24,12 @@ Output Screenshot:
 <strong>Output Screenshot 7:</strong>
 ![Alt text](output-screenshots/Session3-Lab1P1-Sceenshot7.png)
 
+<strong>Output Screenshot 8:</strong>
+![Alt text](output-screenshots/Session3-Lab1P1-Sceenshot8.png)
+
+<strong>Output Screenshot 9:</strong>
+![Alt text](output-screenshots/Session3-Lab1P1-Sceenshot9.png)
+
+<strong>Output Screenshot 10:</strong>
+![Alt text](output-screenshots/Session3-Lab1P1-Sceenshot10.png)
+

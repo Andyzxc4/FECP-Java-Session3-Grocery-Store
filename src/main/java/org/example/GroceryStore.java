@@ -90,8 +90,7 @@ public class GroceryStore {
                             }
                             //  break out while loop when product has been updated
                             break;
-                        }
-                        else {
+                        } else {
                             System.out.printf("\nProduct [%s] isn't available. Product might not included/wrong spelling.\n\n", productNameInput);
                         }
                     }
@@ -111,16 +110,14 @@ public class GroceryStore {
                      */
                     boolean isValidProduct = groceryOperations.validateProduct(productNameInput);
 
-                    while (true) {
-                        if (isValidProduct) {
-                            groceryOperations.removeProduct(productNameInput);
-                            System.out.printf("** Product [%s] has been removed from inventory. **\n\n", productNameInput);
-                            //  break out while loop when product has been updated
-                            break;
-                        }
-                        else {
-                            System.out.printf("\nProduct [%s] isn't available. Product might not included/wrong spelling.\n\n", productNameInput);
-                        }
+                    if (isValidProduct) {
+                        groceryOperations.removeProduct(productNameInput);
+                        System.out.printf("** Product [%s] has been removed from inventory. **\n\n", productNameInput);
+                        //  break out while loop when product has been updated
+                        break;
+                    } else {
+                        System.out.printf("\nProduct [%s] isn't available. Product might not included/wrong spelling.\n\n", productNameInput);
+                        scannerObj.nextLine();
                     }
                     break;
                 case 6:
