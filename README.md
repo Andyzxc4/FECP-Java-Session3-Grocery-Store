@@ -1,8 +1,13 @@
 <h1>Session 3: Lab 1-Part 1 of 2 Grocery Store Inventory System</h1>
 Name: Andre Dominic Ha Lacra
 
-Test Case & Coverage Screenshots:
+Unit Test & Coverage Screenshots:
 
+<strong>Unit Test Screenshot:</strong>
+![Alt text](testcase-screenshots/Session3-Lab1P1-TestResults.png)
+
+<strong>Test Coverage Screenshot:</strong>
+![Alt text](testcase-screenshots/Session3-Lab1P1-TestCoverage.png)
 
 Output Screenshot:
 
